@@ -1,0 +1,40 @@
+.btn {
+  background-color: var(--color-primary);
+  min-width: 10rem;
+  height: 2.5rem;
+  padding: 10px 20px;
+  border-radius: var(--default-border-radius);
+  display: block;
+  border: none;
+  color: #eee;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: var(--color-tertiary);
+}
+
+.btn:active {
+  box-shadow: 1px 1px 5px var(--color-primary);
+}
+
+.loading {
+  width: 0.875rem;
+  height: 0.875rem;
+  display: block;
+  border-radius: 50%;
+  border-top: 0.25rem solid #eee;
+  border-left: 0.25rem solid #eee;
+  border-right: 0.25rem solid #eee;
+  border-bottom: 0.25rem solid var(--color-primary);
+  margin: 0px auto;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,156 @@
+.loginBg {
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+}
+
+.loginImage {
+  grid-row: -1;
+}
+
+.loginImage img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60%;
+  border-radius: var(--default-border-radius);
+}
+
+.loginImage img:hover {
+  animation: objectSlide 10s infinite;
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes objectSlide {
+  0% {
+    object-position: 60%;
+  }
+  50% {
+    object-position: 75%;
+  }
+  75% {
+    object-position: 45%;
+  }
+  100% {
+    object-position: 60%;
+  }
+}
+
+.loginGrid {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1000px;
+  gap: 8px 24px;
+  height: 800px;
+  animation: slide 1.5s forwards;
+}
+.loginOuterContent {
+  display: grid;
+  grid-template-rows: 1fr minmax(50px, auto);
+  gap: 10px;
+}
+.loginInnerContent {
+  border: 2px solid #00000020;
+  border-radius: var(--default-border-radius);
+  padding: 32px auto;
+  display: grid;
+  align-content: center;
+}
+
+.loginLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 32px;
+  gap: 20px;
+}
+
+.loginLogo h1::after {
+  content: "~";
+  color: var(--color-primary);
+  display: block;
+  position: absolute;
+  z-index: -1;
+  right: 39px;
+  top: -27px;
+}
+
+.loginLogo h1 {
+  font-size: 5rem;
+  position: relative;
+}
+.loginLogo img {
+  max-width: 4rem;
+}
+.loginForm {
+  display: grid;
+  padding: 0px 80px;
+  gap: 16px;
+}
+.loginForgot {
+  text-align: center;
+}
+.loginCadastro {
+  text-align: center;
+  border: 2px solid #00000020;
+  border-radius: var(--default-border-radius);
+}
+
+@media (max-width: 1100px) {
+  .loginGrid {
+    height: 600px;
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 800px) {
+  .loginGrid {
+    font-size: 0.875rem;
+    grid-template-columns: 1fr;
+    margin: 0px 32px;
+    width: 400px;
+    height: 600px;
+  }
+  .loginLogo {
+    padding: 8px 16px;
+    gap: 8px;
+  }
+  .loginLogo h1 {
+    font-size: 2rem;
+  }
+  .loginForm {
+    padding: 16px 32px;
+  }
+  .loginImage {
+    display: none;
+  }
+  .loginLogo h1::after {
+    top: -12px;
+    right: 16px;
+  }
+}
+@media (max-width: 400px) {
+  .loginGrid {
+    font-size: 0.75rem;
+  }
+  .loginGrid input {
+    font-size: 0.8rem;
+  }
+  .loginForm {
+    padding: 16px 16px;
+  }
+}
