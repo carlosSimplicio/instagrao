@@ -55,7 +55,7 @@
   grid-template-columns: 1fr 1fr;
   max-width: 1000px;
   gap: 8px 24px;
-  height: 800px;
+  height: 80%;
   animation: slide 1.5s forwards;
 }
 .loginOuterContent {
@@ -99,7 +99,7 @@
 .loginForm {
   display: grid;
   padding: 0px 80px;
-  gap: 16px;
+  gap: 24px;
 }
 .loginForgot {
   text-align: center;
@@ -112,7 +112,6 @@
 
 @media (max-width: 1100px) {
   .loginGrid {
-    height: 600px;
     max-width: 800px;
   }
 }
@@ -123,7 +122,6 @@
     grid-template-columns: 1fr;
     margin: 0px 32px;
     width: 400px;
-    height: 600px;
   }
   .loginLogo {
     padding: 8px 16px;

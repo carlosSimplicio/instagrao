@@ -12,7 +12,6 @@ const Button: React.FC<Props> = ({ isLoading, handleClick, children }) => {
   ) : (
     children
   );
-  console.log(content);
   return (
     <button className={styles.btn} onClick={handleClick}>
       {content}

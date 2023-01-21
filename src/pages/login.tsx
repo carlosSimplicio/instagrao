@@ -2,15 +2,23 @@ import styles from "../styles/login.module.css";
 import Button from "@/components/Button";
 import React from "react";
 import Input from "@/components/Input";
+import ErrorComponent from "@/components/ErrorComponent";
+import useFetch from "@/hooks/useFetch";
 
 const Login = () => {
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const [data, loading, error, makeRequest] = useFetch();
+
+  const handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log(event.clientX, event.clientY);
+    const { response, json } = await makeRequest("/api/dsasdaogin");
+    console.log(response);
+    console.log(json);
   };
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log(event.target.value);
   };
+
   return (
     <div className={styles.loginBg}>
       <main className={styles.loginGrid}>
@@ -36,9 +44,10 @@ const Login = () => {
                 label="Senha"
                 handleChange={handleChange}
               />
-              <Button isLoading={false} handleClick={handleClick}>
+              <Button isLoading={loading} handleClick={handleClick}>
                 Entrar
               </Button>
+              <ErrorComponent message={error} />
             </form>
             <p className={styles.loginForgot}>
               <a href="/">Esqueceu sua Senha?</a>
