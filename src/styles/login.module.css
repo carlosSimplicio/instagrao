@@ -82,9 +82,7 @@
 .loginLogo h1::after {
   content: "~";
   color: var(--color-primary);
-  display: block;
   position: absolute;
-  z-index: -1;
   right: 39px;
   top: -27px;
 }

@@ -3,20 +3,26 @@ import Button from "@/components/Button";
 import React from "react";
 import Input from "@/components/Input";
 import ErrorComponent from "@/components/ErrorComponent";
-import useFetch from "@/hooks/useFetch";
+import { UserContext } from "@/utils/UserContext";
+import { useRouter } from "next/router";
 
 const Login = () => {
-  const [data, loading, error, makeRequest] = useFetch();
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const { loading, logUser } = React.useContext(UserContext);
+  const router = useRouter();
 
   const handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    const { response, json } = await makeRequest("/api/dsasdaogin");
-    console.log(response);
-    console.log(json);
+    const user = await logUser(username, password);
+    if (user) router.push("/");
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
+  const handleChange = (
+    { target }: { target: HTMLInputElement },
+    callback: React.Dispatch<React.SetStateAction<string>>
+  ) => {
+    callback(target.value);
   };
 
   return (
@@ -36,18 +42,20 @@ const Login = () => {
                 type="text"
                 name="username"
                 label="Nome de usuário ou email"
-                handleChange={handleChange}
+                value={username}
+                handleChange={(event) => handleChange(event, setUsername)}
               />
               <Input
                 type="password"
                 name="password"
                 label="Senha"
-                handleChange={handleChange}
+                value={password}
+                handleChange={(event) => handleChange(event, setPassword)}
               />
               <Button isLoading={loading} handleClick={handleClick}>
                 Entrar
               </Button>
-              <ErrorComponent message={error} />
+              <ErrorComponent message={""} />
             </form>
             <p className={styles.loginForgot}>
               <a href="/">Esqueceu sua Senha?</a>

@@ -1,0 +1,119 @@
+.feedContainer {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  height: 100vh;
+}
+
+.navbar {
+  width: 250px;
+  display: grid;
+  gap: 32px;
+  border-right: 1px solid #00000020;
+  height: 100vh;
+  align-content: flex-start;
+  padding: 48px 48px;
+}
+
+.navbar a {
+  color: var(--color-font);
+}
+
+.navbar a.active {
+  font-weight: bold;
+}
+
+.navbar img {
+  display: inline-block;
+  max-width: 24px;
+  padding-bottom: 3px;
+}
+
+.navBarItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 32px;
+}
+
+.navBarItem:hover {
+  scale: 107%;
+  transition: scale 0.1s;
+}
+
+.navBarItemNotification {
+  position: relative;
+}
+
+.navBarItemNotification::before {
+  display: block;
+  content: "";
+  background-color: var(--color-error);
+  border-radius: 50%;
+  position: absolute;
+  height: 7px;
+  width: 7px;
+  top: 7px;
+  left: 15px;
+}
+
+.feedLogo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.feedLogo img {
+  max-width: 32px;
+}
+
+.feedLogo h1 {
+  position: relative;
+}
+
+.feedLogo h1::after {
+  content: "~";
+  color: var(--color-primary);
+  position: absolute;
+  right: 15px;
+  top: -12px;
+}
+
+.feed {
+  /* background-color: var(--color-primary); */
+}
+
+@media (max-width: 1000px) {
+  .navbar {
+    width: min-content;
+    padding: 48px 24px;
+  }
+  .navbar span,
+  .navbar h1 {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .feedContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto min-content;
+    height: 100vh;
+  }
+  .navbar {
+    height: revert;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+    grid-row: 2;
+    align-self: end;
+    border-right: 0px;
+    border-top: 1px solid #00000020;
+    gap: 5px;
+  }
+
+  .navbar a:first-child {
+    display: none;
+  }
+}

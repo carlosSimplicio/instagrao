@@ -3,12 +3,14 @@
 body {
   --font-primary: "Poppins", Arial, sans-serif;
   --font-secondary: "Berkshire Swash", cursive;
+  --color-font: #110d0d;
   --color-primary: #8b51e1;
   --color-secondary: #0095f6;
   --color-tertiary: #6f33ca;
   --color-error: #f30d0d;
   --default-border-radius: 5px;
   font-family: var(--font-primary);
+  color: var(--color-font);
   font-size: 1rem;
   line-height: 1.5rem;
 }
