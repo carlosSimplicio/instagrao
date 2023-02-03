@@ -88,6 +88,14 @@
   .navbar h1 {
     display: none;
   }
+  .navbar a {
+    display: flex;
+    justify-content: center;
+  }
+
+  .navBarItemNotification::before {
+    left: 18px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -111,5 +119,13 @@
 
   .navbar a:first-child {
     display: none;
+  }
+
+  .navbar a {
+    display: initial;
+  }
+  .navBarItemNotification::before {
+    left: 15px;
+    top: 3px;
   }
 }
