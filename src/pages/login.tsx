@@ -5,6 +5,7 @@ import Input from "@/components/Input";
 import ErrorComponent from "@/components/ErrorComponent";
 import { UserContext } from "@/utils/UserContext";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Login = () => {
   const [username, setUsername] = React.useState("");
@@ -29,12 +30,22 @@ const Login = () => {
     <div className={styles.loginBg}>
       <main className={styles.loginGrid}>
         <div className={styles.loginImage}>
-          <img src="login-pic.jpg" alt="Pessoa tirando foto de paisagem" />
+          <Image
+            width={800}
+            height={800}
+            src="/login-pic.jpg"
+            alt="Pessoa tirando foto de paisagem"
+          />
         </div>
         <div className={styles.loginOuterContent}>
           <div className={styles.loginInnerContent}>
             <div className={styles.loginLogo}>
-              <img src="logo.svg" alt="Instagrão Logo" />
+              <Image
+                width={64}
+                height={64}
+                src="logo.svg"
+                alt="Instagrão Logo"
+              />
               <h1 className="logo">Instagrao</h1>
             </div>
             <form className={styles.loginForm} action="/">

@@ -1,5 +1,4 @@
 .loginBg {
-  background-color: #eee;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,6 +123,9 @@
   .loginLogo {
     padding: 8px 16px;
     gap: 8px;
+  }
+  .loginLogo img {
+    max-height: 48px;
   }
   .loginLogo h1 {
     font-size: 2rem;

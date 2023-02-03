@@ -79,10 +79,6 @@
   top: -12px;
 }
 
-.feed {
-  /* background-color: var(--color-primary); */
-}
-
 @media (max-width: 1000px) {
   .navbar {
     width: min-content;
