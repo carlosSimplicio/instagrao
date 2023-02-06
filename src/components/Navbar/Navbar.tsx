@@ -9,7 +9,7 @@ const Navbar = () => {
     <div className={styles.container}>
       <Logo size="small" isLink={true} />
       <div className={styles.navbar}>
-        <Link href="/" className={styles.navBarItem}>
+        <Link href="/" className={styles.navBarItem} title="Página Inicial">
           <Image
             height={27}
             width={24}
@@ -18,15 +18,15 @@ const Navbar = () => {
           />
           <span>Página Inicial</span>
         </Link>
-        <Link href="/" className={styles.navBarItem}>
+        <Link href="/" className={styles.navBarItem} title="Pesquisa">
           <Image height={27} width={24} src="search-icon.svg" alt="Pesquisa" />
           <span>Pesquisa</span>
         </Link>
-        <Link href="/" className={styles.navBarItem}>
+        <Link href="/" className={styles.navBarItem} title="Explorar">
           <Image height={27} width={24} src="explore-icon.svg" alt="Explorar" />
           <span>Explorar</span>
         </Link>
-        <Link href="/" className={styles.navBarItem}>
+        <Link href="/" className={styles.navBarItem} title="Mensagens">
           <Image
             height={27}
             width={24}
@@ -38,6 +38,7 @@ const Navbar = () => {
         <Link
           href="/"
           className={`${styles.navBarItem} ${styles.navBarItemNotification}`}
+          title="Notificações"
         >
           <Image
             height={27}
@@ -47,7 +48,7 @@ const Navbar = () => {
           />
           <span>Notificações</span>
         </Link>
-        <Link href="/" className={styles.navBarItem}>
+        <Link href="/" className={styles.navBarItem} title="Perfil">
           <Image height={27} width={24} src="profile-icon.svg" alt="Perfil" />
           <span>Perfil</span>
         </Link>
