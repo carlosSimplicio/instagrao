@@ -1,8 +1,9 @@
 import styles from "../styles/login.module.css";
-import Button from "@/components/Button";
+import Button from "@/components/Button/Button";
 import React from "react";
-import Input from "@/components/Input";
-import ErrorComponent from "@/components/ErrorComponent";
+import Input from "@/components/Input/Input";
+import ErrorComponent from "@/components/ErrorComponent/ErrorComponent";
+import Logo from "@/components/Logo/Logo";
 import { UserContext } from "@/utils/UserContext";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -39,15 +40,7 @@ const Login = () => {
         </div>
         <div className={styles.loginOuterContent}>
           <div className={styles.loginInnerContent}>
-            <div className={styles.loginLogo}>
-              <Image
-                width={64}
-                height={64}
-                src="logo.svg"
-                alt="Instagrão Logo"
-              />
-              <h1 className="logo">Instagrao</h1>
-            </div>
+            <Logo size="medium" isLink={false} />
             <form className={styles.loginForm} action="/">
               <Input
                 type="text"

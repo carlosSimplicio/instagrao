@@ -1,5 +1,5 @@
 import React from "react";
-import ProtectedRoute from "@/components/ProtectedRoute";
+import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 
 export default function Home() {
   const [click, setClick] = React.useState(0);

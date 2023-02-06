@@ -1,0 +1,59 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-font);
+  font-family: var(--font-secondary);
+  padding: 0.5rem;
+}
+
+.logo h1 {
+  position: relative;
+}
+
+.small h1::after {
+  content: "~";
+  color: var(--color-primary);
+  position: absolute;
+  right: 1rem;
+  top: -0.75rem;
+}
+
+.disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.medium {
+  font-size: 2rem;
+}
+
+.medium h1::after {
+  content: "~";
+  color: var(--color-primary);
+  position: absolute;
+  right: 2rem;
+  top: -1.5rem;
+}
+
+@media (max-width: 500px) {
+  .medium {
+    font-size: 1.5rem;
+  }
+
+  .medium h1::after {
+    right: 1.5rem;
+    top: -1.25rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .medium {
+    font-size: 1.25rem;
+  }
+  .medium img {
+    max-width: 2.5rem;
+  }
+}

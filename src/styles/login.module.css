@@ -70,29 +70,6 @@
   align-content: center;
 }
 
-.loginLogo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 32px;
-  gap: 20px;
-}
-
-.loginLogo h1::after {
-  content: "~";
-  color: var(--color-primary);
-  position: absolute;
-  right: 39px;
-  top: -27px;
-}
-
-.loginLogo h1 {
-  font-size: 5rem;
-  position: relative;
-}
-.loginLogo img {
-  max-width: 4rem;
-}
 .loginForm {
   display: grid;
   padding: 0px 80px;
@@ -120,25 +97,11 @@
     margin: 0px 32px;
     width: 400px;
   }
-  .loginLogo {
-    padding: 8px 16px;
-    gap: 8px;
-  }
-  .loginLogo img {
-    max-height: 48px;
-  }
-  .loginLogo h1 {
-    font-size: 2rem;
-  }
   .loginForm {
     padding: 16px 32px;
   }
   .loginImage {
     display: none;
-  }
-  .loginLogo h1::after {
-    top: -12px;
-    right: 16px;
   }
 }
 @media (max-width: 400px) {

@@ -1,0 +1,123 @@
+.container {
+  height: 100vh;
+  border-right: 1px solid #00000020;
+  width: auto;
+  max-width: 250px;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  display: grid;
+  gap: 2rem;
+  height: 100%;
+  align-content: flex-start;
+  padding: 2rem 2rem;
+}
+
+.navbar a {
+  color: var(--color-font);
+}
+
+.navbar a.active {
+  font-weight: bold;
+}
+
+.navBarItem img {
+  display: inline-block;
+}
+
+.navBarItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 32px;
+}
+
+.navBarItem span {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.navBarItem:hover {
+  scale: 107%;
+  transition: scale 0.1s;
+}
+
+.navBarItemNotification {
+  position: relative;
+}
+
+.navBarItemNotification::before {
+  display: block;
+  content: "";
+  background-color: var(--color-error);
+  border-radius: 50%;
+  position: absolute;
+  height: 7px;
+  width: 7px;
+  top: 7px;
+  left: 15px;
+}
+
+.navbar div:first-child {
+  padding: 0px;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    width: min-content;
+  }
+  .container span,
+  .container h1 {
+    display: none;
+  }
+  .navbar {
+    width: min-content;
+  }
+  .navbar a {
+    display: flex;
+    justify-content: center;
+  }
+
+  .navBarItemNotification::before {
+    left: 18px;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    height: revert;
+    display: flex;
+    width: auto;
+    max-width: revert;
+    justify-content: flex-end;
+  }
+  .navbar {
+    height: revert;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+    grid-row: 2;
+    align-self: end;
+    border-right: 0px;
+    border-top: 1px solid #00000020;
+    gap: 5px;
+  }
+
+  .container a:first-child {
+    display: none;
+  }
+
+  .navbar a {
+    display: initial;
+  }
+  .navBarItemNotification::before {
+    left: 15px;
+    top: 3px;
+  }
+}
