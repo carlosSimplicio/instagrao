@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "../styles/feed.module.css";
 import Navbar from "@/components/Navbar/Navbar";
-import Image from "next/image";
-
+import Post from "@/components/Post/Post";
 interface FeedProps {
   imagePaths: Array<string>;
 }
@@ -38,17 +37,12 @@ const Feed: React.FC<FeedProps> = ({ imagePaths }) => {
       <div className={styles.feed}>
         {i.map((file, index) => {
           return (
-            <div>
-              <Image
-                key={`${index}-${file}`}
-                src={file}
-                alt="Some image"
-                width={462}
-                height={562}
-                unoptimized
-                priority={index === 0}
-              />
-            </div>
+            <Post
+              key={`${index}-${file}`}
+              src={file}
+              alt={`Some image ${index}`}
+              priority={index === 0}
+            />
           );
         })}
       </div>

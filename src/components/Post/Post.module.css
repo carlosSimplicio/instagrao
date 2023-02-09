@@ -1,0 +1,63 @@
+.container {
+  padding: 2rem;
+}
+
+.container a:hover {
+  opacity: 50%;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 1rem;
+}
+
+.userProfileInfo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.userInfoText > * {
+  margin-inline: 3px;
+}
+
+.userInfoText a {
+  color: var(--color-font);
+}
+
+.userInfoText span:last-child {
+  opacity: 50%;
+}
+
+.options {
+  font-size: 2rem;
+  color: var(--color-font);
+}
+
+.imgContainer {
+  width: 468px;
+  height: 562px;
+  position: relative;
+}
+
+.imgContainer img {
+  border-radius: 0.25rem;
+  margin: auto;
+}
+
+.postInfo {
+  padding-block: 0.5rem;
+}
+
+.postButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.interactionButtons {
+  display: flex;
+  gap: 15px;
+}
