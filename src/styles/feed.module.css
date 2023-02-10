@@ -5,7 +5,6 @@
 }
 
 .feed {
-  padding: 2rem;
   display: grid;
   width: 100%;
   justify-content: center;
@@ -21,5 +20,9 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto min-content;
     height: 100vh;
+  }
+
+  .feed {
+    grid-row: 1;
   }
 }

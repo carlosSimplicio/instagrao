@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import CommentInput from "../CommentInput/CommentInput";
 import styles from "./Post.module.css";
 
 interface PostProps {
@@ -21,7 +22,7 @@ const Post: React.FC<PostProps> = ({ src, alt, priority = false }) => {
             />
           </a>
           <span className={styles.userInfoText}>
-            <a href="/">@joazinhoDaRoca</a>
+            <a href="/">joazinhoDaRoca</a>
             <span>•</span>
             <span>9 h</span>
           </span>
@@ -71,9 +72,30 @@ const Post: React.FC<PostProps> = ({ src, alt, priority = false }) => {
             />
           </a>
         </div>
-        <a href="/">
-          <p>200.000 curtidas</p>
+        <div className={styles.likeCount}>
+          <a href="/">200.000 curtidas</a>
+        </div>
+      </div>
+      <div className={styles.postDescription}>
+        <a href="" className={styles.userPostNick}>
+          joazinhoDaRoca
         </a>
+        <p>
+          A natureza tem seus mistérios e é preciso respeitá-los. A segunda
+          temporada de Cidade Invisível tá chegando. 🌿👀🦋
+        </p>
+      </div>
+      <div className={styles.commentSection}>
+        <a href="/" className={styles.viewComments}>
+          Ver todos os comentários
+        </a>
+        <div className={styles.comments}>
+          <a href="" className={styles.userPostNick}>
+            mariazinhaDoCeleiro
+          </a>
+          <p>Nossa Joãozinho, mas que coisa mais lindas</p>
+        </div>
+        <CommentInput />
       </div>
     </div>
   );

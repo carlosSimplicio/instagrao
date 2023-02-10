@@ -2,6 +2,8 @@ import React from "react";
 import styles from "../styles/feed.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Post from "@/components/Post/Post";
+import Head from "next/head";
+
 interface FeedProps {
   imagePaths: Array<string>;
 }
@@ -32,21 +34,26 @@ export const getServerSideProps = async () => {
 const Feed: React.FC<FeedProps> = ({ imagePaths }) => {
   const i = imagePaths.slice(0, 6);
   return (
-    <div className={styles.feedContainer}>
-      <Navbar />
-      <div className={styles.feed}>
-        {i.map((file, index) => {
-          return (
-            <Post
-              key={`${index}-${file}`}
-              src={file}
-              alt={`Some image ${index}`}
-              priority={index === 0}
-            />
-          );
-        })}
+    <>
+      <Head>
+        <title>Instagrão - Feed</title>
+      </Head>
+      <div className={styles.feedContainer}>
+        <Navbar />
+        <div className={styles.feed}>
+          {i.map((file, index) => {
+            return (
+              <Post
+                key={`${index}-${file}`}
+                src={file}
+                alt={`Some image ${index}`}
+                priority={index === 0}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

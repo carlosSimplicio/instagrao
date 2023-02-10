@@ -1,0 +1,26 @@
+.container {
+  padding-block: 0.5rem;
+  position: relative;
+  display: flex !important;
+}
+
+.container textarea {
+  flex: 1;
+  width: auto;
+  outline: none;
+  border: none;
+  resize: none;
+}
+
+.container button {
+  right: 5px;
+  color: var(--color-primary);
+  background-color: transparent;
+  font-weight: bold;
+  border: none;
+}
+
+.container button:hover {
+  cursor: pointer;
+  color: var(--color-tertiary);
+}

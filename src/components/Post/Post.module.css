@@ -1,5 +1,10 @@
 .container {
-  padding: 2rem;
+  max-width: 468px;
+  margin-inline: 10px;
+}
+
+.container a {
+  color: var(--color-font);
 }
 
 .container a:hover {
@@ -38,9 +43,8 @@
 }
 
 .imgContainer {
-  width: 468px;
-  height: 562px;
   position: relative;
+  aspect-ratio: 468 / 562;
 }
 
 .imgContainer img {
@@ -60,4 +64,52 @@
 .interactionButtons {
   display: flex;
   gap: 15px;
+}
+
+.likeCount a {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.likeCount a:hover {
+  opacity: 100%;
+}
+
+.postDescription {
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.postDescription * {
+  display: inline;
+}
+
+.userPostNick {
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.commentSection {
+  font-size: 0.75rem;
+}
+
+.commentSection * {
+  display: inline;
+}
+
+.viewComments {
+  display: block;
+  opacity: 50%;
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: initial;
+  }
+
+  .imgContainer {
+    /* width: auto; */
+    height: auto;
+    aspect-ratio: 468 / 562;
+  }
 }
