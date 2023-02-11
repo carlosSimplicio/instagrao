@@ -1,6 +1,8 @@
 .container {
   max-width: 468px;
   margin-inline: 10px;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 1rem;
 }
 
 .container a {
@@ -101,7 +103,14 @@
   display: block;
   opacity: 50%;
 }
-
+@media (max-width: 700px) {
+  .container {
+    padding-bottom: 2rem;
+  }
+  .commentInput {
+    display: none;
+  }
+}
 @media (max-width: 500px) {
   .container {
     width: initial;

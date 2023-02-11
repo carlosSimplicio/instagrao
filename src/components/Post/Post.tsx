@@ -95,7 +95,9 @@ const Post: React.FC<PostProps> = ({ src, alt, priority = false }) => {
           </a>
           <p>Nossa Joãozinho, mas que coisa mais lindas</p>
         </div>
-        <CommentInput />
+        <div className={styles.commentInput}>
+          <CommentInput />
+        </div>
       </div>
     </div>
   );

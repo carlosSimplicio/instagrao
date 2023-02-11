@@ -10,6 +10,8 @@
   outline: none;
   border: none;
   resize: none;
+  overflow: hidden;
+  font-family: var(--font-primary);
 }
 
 .container button {
