@@ -115,10 +115,4 @@
   .container {
     width: initial;
   }
-
-  .imgContainer {
-    /* width: auto; */
-    height: auto;
-    aspect-ratio: 468 / 562;
-  }
 }
