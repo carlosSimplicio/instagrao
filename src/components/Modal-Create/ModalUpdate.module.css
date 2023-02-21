@@ -21,3 +21,9 @@
 .modal * {
   display: block;
 }
+
+.modal img {
+  aspect-ratio: 468/562;
+  max-width: 400px;
+  object-fit: cover;
+}

@@ -1,18 +1,20 @@
 import React from "react";
-import styles from "./Modal-Create.module.css";
+import styles from "./ModalUpdate.module.css";
 
-type ModalCreateProps = {
+type ModalUpdateProps = {
   show: Function;
 };
 
-const ModalCreate: React.FC<ModalCreateProps> = ({ show }) => {
+const ModalUpdate: React.FC<ModalUpdateProps> = ({ show }) => {
   const imgPreview = React.useRef<HTMLImageElement | null>(null);
+  const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
 
   const handleImageChange = ({ target }: { target: HTMLInputElement }) => {
     if (!target.files || !imgPreview.current) return;
     const file = target.files[0];
     const fileURL = URL.createObjectURL(file);
     imgPreview.current.src = fileURL;
+    setSelectedFile(file);
   };
 
   const exitModal = (event: React.MouseEvent<HTMLElement>) => {
@@ -22,6 +24,21 @@ const ModalCreate: React.FC<ModalCreateProps> = ({ show }) => {
       target.id === "modal-container-bg"
     ) {
       show();
+    }
+  };
+
+  const uploadImage = async () => {
+    if (selectedFile) {
+      const formData = new FormData();
+      formData.append("file", selectedFile, selectedFile.name);
+      const data = await fetch("/api/upload-image", {
+        method: "POST",
+        // headers: {
+        //   "Content-Type": " multipart/form-data",
+        // },
+        body: formData,
+      });
+      console.log(data);
     }
   };
 
@@ -37,10 +54,10 @@ const ModalCreate: React.FC<ModalCreateProps> = ({ show }) => {
         <div className={styles.preview}>
           <img ref={imgPreview} />
         </div>
-        <button>Enviar</button>
+        <button onClick={uploadImage}>Enviar</button>
       </div>
     </div>
   );
 };
 
-export default ModalCreate;
+export default ModalUpdate;

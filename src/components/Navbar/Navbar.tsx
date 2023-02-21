@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./Navbar.module.css";
 import Logo from "../Logo/Logo";
-import ModalCreate from "../Modal-Create/Modal-Create";
+import ModalUpdate from "../Modal-Create/ModalUpdate";
 
 const Navbar = () => {
   const [displaySearch, setDisplaySearch] = React.useState(false);
@@ -104,7 +104,7 @@ const Navbar = () => {
         </div>
       </div>
       {displayCreate ? (
-        <ModalCreate show={() => setDisplayCreate(!displayCreate)} />
+        <ModalUpdate show={() => setDisplayCreate(!displayCreate)} />
       ) : null}
     </>
   );
