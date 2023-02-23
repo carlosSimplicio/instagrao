@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./Navbar.module.css";
 import Logo from "../Logo/Logo";
-import ModalUpdate from "../Modal-Create/ModalUpdate";
+import ModalUpdate from "../ModalUpload/ModalUpload";
 
 const Navbar = () => {
   const [displaySearch, setDisplaySearch] = React.useState(false);
