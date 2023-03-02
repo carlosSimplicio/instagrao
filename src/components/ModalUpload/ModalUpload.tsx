@@ -9,17 +9,28 @@ type ModalUpdateProps = {
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({ show }) => {
   const imgPreview = React.useRef<HTMLImageElement | null>(null);
-  const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
   const inputRef = React.useRef<HTMLInputElement | null>(null);
+  const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
+  const [isDragging, setIsDragging] = React.useState(false);
 
   const handleImageChange = ({ target }: { target: HTMLInputElement }) => {
-    console.log(target.files);
     if (!target.files || !imgPreview.current) return;
     const file = target.files[0];
     const fileURL = URL.createObjectURL(file);
     imgPreview.current.src = fileURL;
-    console.log({ fileURL });
     setSelectedFile(file);
+  };
+
+  const handleDropImage = (event: React.DragEvent) => {
+    event.preventDefault();
+    if (!event.dataTransfer.files.length || !imgPreview.current) return;
+
+    const file = event.dataTransfer.files[0];
+    if (["image/jpeg", "image/jpg", "image/png"].includes(file.type)) {
+      const fileURL = URL.createObjectURL(file);
+      imgPreview.current.src = fileURL;
+      setSelectedFile(file);
+    }
   };
 
   const exitModal = (event: React.MouseEvent<HTMLElement>) => {
@@ -38,11 +49,10 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({ show }) => {
       formData.append("file", selectedFile, selectedFile.name);
       const data = await fetch("/api/upload-image", {
         method: "POST",
-        // headers: {
-        //   "Content-Type": " multipart/form-data",
-        // },
         body: formData,
       });
+      setSelectedFile(null);
+      show();
     }
   };
 
@@ -57,14 +67,33 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({ show }) => {
       id="modal-container-bg"
       className={styles.container}
       onClick={exitModal}
+      onDragOver={(event) => {
+        event.preventDefault();
+        setIsDragging(true);
+      }}
+      onDragLeave={(event) => {
+        event.preventDefault();
+        setIsDragging(false);
+      }}
+      onDrop={handleDropImage}
     >
+      <div className={styles.closeButton}>
+        <button onClick={() => show()} title="Fechar">
+          ✖
+        </button>
+      </div>
       <div className={styles.modal}>
-        <h3>Criar nova publicação</h3>
+        <div className={styles.actions}>
+          <h3>Criar nova publicação</h3>
+          <button disabled={!selectedFile} onClick={uploadImage}>
+            Upload
+          </button>
+        </div>
         <input
           type="file"
           className={styles.input}
+          accept="image/png, image/jpeg, image/jpg"
           onChange={handleImageChange}
-          onClick={(event) => console.log(event)}
           ref={inputRef}
         />
         <div
@@ -77,15 +106,15 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({ show }) => {
         <div
           className={`${styles.dropdown} ${
             showPreview ? styles.showPreview : ""
-          }`}
+          } ${isDragging ? styles.drag : ""}`}
         >
           <Image
             width={96}
             height={96}
             src="picture-icon.svg"
-            alt="Adicione suas fotos"
+            alt="Adicione sua foto"
           />
-          <p>Arraste as fotos aqui</p>
+          <p>Arraste a foto aqui</p>
           <Button handleClick={openFileExplorer} isLoading={false}>
             Selecionar do computador
           </Button>

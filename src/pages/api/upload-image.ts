@@ -23,9 +23,9 @@ export default async function handler(
         Body: fileBuffer,
       })
     );
-    console.log(data);
-    res.status(200).json("Olá meu querido");
+    console.log({ data });
   });
+  res.status(200).json(null);
 }
 
 export const config = {

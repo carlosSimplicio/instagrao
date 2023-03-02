@@ -9,6 +9,24 @@
   justify-content: center;
 }
 
+.closeButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.closeButton button {
+  background-color: transparent;
+  border: none;
+  font-size: large;
+  font-weight: bold;
+  color: #fff;
+}
+
+.closeButton button:hover {
+  cursor: pointer;
+}
+
 .modal {
   width: 468px;
   aspect-ratio: 1/1;
@@ -24,9 +42,28 @@
   display: block;
 }
 
-.modal h3 {
-  border-bottom: 1px solid #00000020;
+.actions {
   padding-bottom: 1rem;
+  border-bottom: 1px solid #00000020;
+  display: flex;
+}
+
+.actions h3 {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.actions button {
+  background-color: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.actions button:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .preview {
@@ -65,4 +102,9 @@
 
 .dropdown p {
   font-size: 1.25rem;
+}
+
+.dropdown.drag img {
+  filter: invert(35%) sepia(98%) saturate(789%) hue-rotate(233deg)
+    brightness(91%) contrast(95%);
 }
